@@ -6,12 +6,22 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 01:16:38 by psegura-          #+#    #+#             */
-/*   Updated: 2022/07/22 10:57:41 by psegura-         ###   ########.fr       */
+/*   Updated: 2022/08/15 04:31:42 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+/**
+ * It takes a format character and a va_list, and returns the number of
+ * characters printed
+ * 
+ * @param args the va_list that contains all the arguments passed
+ * to the function.
+ * @param format the format specifier
+ * 
+ * @return The number of characters printed.
+ */
 static int	ft_format(va_list args, char format)
 {
 	int	dest;
@@ -38,6 +48,14 @@ static int	ft_format(va_list args, char format)
 	return (dest);
 }
 
+/**
+ * The function ft_printf() takes a string and a variable number of arguments,
+ and returns the number of characters printed
+ * 
+ * @param string The string to be printed.
+ * 
+ * @return The number of characters printed.
+ */
 int	ft_printf(char const *string, ...)
 {
 	va_list	args;
@@ -60,28 +78,3 @@ int	ft_printf(char const *string, ...)
 	}
 	return (d_type);
 }
-/*
-int	main(void)
-{
-	char	*str;
-	char	c;
-	int		nbr;
-
-	str = "HOLA";
-	c = 'b';	
-	nbr = 1234567890;
-	ft_printf(" -> Size %d", ft_printf("%s", str));
-	ft_putchar('\n');
-	ft_printf(" -> Size %d", ft_printf("%c", c));
-	ft_putchar('\n');
-	ft_printf(" -> Size %d", ft_printf("%d", nbr));
-	ft_putchar('\n');
-	ft_printf(" -> Size %d", ft_printf("%i", nbr));
-	ft_putchar('\n');
-	ft_printf(" -> Size %d", ft_printf("%x", nbr));
-	ft_putchar('\n');
-	ft_printf(" -> Size %d", ft_printf("%X", nbr));
-	ft_putchar('\n');
-	return (0);
-}
-*/
